@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <title>installer</title>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="shortcut icon" href="../assets/icon.png" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="content">
+            <h2>write contract</h2>
+            <label>token name
+                <input id="name" type="text" />
+            </label>
+            <label>token symbol
+                <input id="symbol" type="text" />
+            </label>
+            <button id="write" type="button">write</button>
+            <div id="writeMessage"></div>
+            <h2>verify code</h2>
+            <label>contract address
+                <input id="address" type="text" size="42" maxlength="42" />
+            </label>
+            <label>comments (optional)
+                <textarea id="comments"></textarea>
+            </label>
+            <button id="verify" type="button">verify</button>
+            <div id="verifyMessage"></div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

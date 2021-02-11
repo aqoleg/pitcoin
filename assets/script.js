@@ -436,30 +436,37 @@
 
         function checkRef() {
             var ref = parse(eth ? 'eth' : 'trx');
-            if (ref === account) {
-                console.log('using you address as ref');
-                ref = null;
-            }
             if (ref) {
                 if ((eth && !web3.utils.isAddress(ref)) || (!eth && !tronWeb.isAddress(ref))) {
                     console.log('incorrect ref');
                     ref = null;
                 }
             }
+            if (!ref) {
+                if (eth) {
+                    ref = '0x33B3084d9210881D0406a81AB7d5FDc3F13e5E77';
+                } else {
+                    ref = 'TKiYW9t4Tr5MFgrTQvu5Qu3e57oNG41HGU';
+                }
+            }
+            if (ref === account) {
+                console.log('using you address as ref');
+                ref = null;
+            }
             if (eth) {
                 if (ref) {
                     contract.methods.balanceOf(ref).call().then(function (balance) {
                         if (new BigNumber(balance).shiftedBy(-18).isLessThan(10)) {
                             console.log('not a ref');
-                            ref = '0xcF43aF087aCa4D354A01298d6abc8ED34D715F08';
+                            ref = '0x0000000000000000000000000000000000000000';
                         }
                         doEthTx(ref);
                     }).catch(error);
                 } else {
-                    doEthTx('0xcF43aF087aCa4D354A01298d6abc8ED34D715F08');
+                    doEthTx('0x0000000000000000000000000000000000000000');
                 }
             } else {
-                doTronTx(ref ? ref : 'TKiYW9t4Tr5MFgrTQvu5Qu3e57oNG41HGU');
+                doTronTx(ref ? ref : 'T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb');
             }
         }
 
