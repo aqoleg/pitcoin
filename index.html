@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>pitcoin</title>
+
+        <meta charset="utf-8" />
+
+        <meta name="description"
+              content="Erc20 ethereum and trc20 tron tokens with fixed price of 0.1 eth or 1 trx.
+                       Buy/sell 10% fee, transfer 5% fee, fee is distributed among all holders.
+                       Referral bonus 3% for holders with more than 10 eth pit or 1000 trx pit.
+                       No owners and administrators." />
+        <meta name="keywords" content="aqoleg pitcoin network" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#F7A219" />
+
+        <link rel="icon" href="assets/196.png" />
+        <link rel="stylesheet" href="assets/style.css" />
+    </head>
+    <body>
+        <div id="noFooter">
+            <div id="header">
+                <div id="logo"><div></div></div>
+                <div id="headerButtons">
+                    <button id="trx" type="button" class="active">trx</button>
+                    <button id="eth" type="button">eth</button>
+                    <button id="connect" type="button">connect</button>
+                </div>
+            </div>
+            <p id="startMessage"></p>
+            <h1>pitcoin</h1>
+            <p>(developer edition)</p>
+            <p class="onestring">contract
+                <a id="contract"
+                   href="https://tronscan.org/#/contract/TBxWTtKLUX4JcBbow9C41Q5EomdtQNZp97"
+                   target="_blank" rel="noopener">TBxWTtKLUX4JcBbow9C41Q5EomdtQNZp97</a>
+            </p>
+            <p>contract balance <span id="contractBalance">...</span> <span class="currency"></span></p>
+            <p>fixed price <span id="price">1</span> <span class="currency">trx</span>/pit</p>
+            <p>buy/sell - 10% fee, transfer - 5% fee, withdraw and reinvest - no fee</p>
+            <p>fee is distributed among all holders as dividends</p>
+            <p>
+                referral bonus - 3%, the minimum amount required to receive referral bonuses -
+                <span id="refAmount">1000</span>
+                pit
+            </p>
+            <p>no owners and administrators</p>
+            <h2>your balance <span id="balance">...</span> pit</h2>
+            <p>buy and sell pit</p>
+            <div id="trade">
+                <div class="half">
+                    <label>
+                        <span class="currency">trx</span> value
+                        <span id="buyValueHint" class="hint"></span>
+                        <input id="buyValue" type="text" maxlength="22" />
+                    </label>
+                    <button id="buy" type="button">buy</button>
+                </div>
+                <div class="half">
+                    <label>
+                        pit value
+                        <span id="sellValueHint" class="hint"></span>
+                        <input id="sellValue" type="text" maxlength="25" />
+                    </label>
+                    <button id="sell" type="button">sell</button>
+                </div>
+            </div>
+            <h2>
+                your dividends
+                <span id="dividend">...</span>
+                <span class="currency">trx</span>, including referral
+                <span id="refDividend">...</span>
+                <span class="currency">trx</span>
+            </h2>
+            <p>reinvest and withdraw dividends</p>
+            <div id="divs">
+                <div class="smallHalf">
+                    <button id="reinvest" type="button">reinvest</button>
+                </div>
+                <div class="smallHalf">
+                    <button id="withdraw" type="button">withdraw</button>
+                </div>
+            </div>
+            <h2 id="ref">your referral link</h2>
+            <p id="reflink"></p>
+            <div id="logs"></div>
+        </div>
+        <div id="footer">
+            <div>
+                <a target="_blank" rel="noopener"
+                   href="https://t.me/joinchat/Htm91RrhlyUFjfRpfb5Vyg">telegram</a>
+                <a target="_blank" rel="noopener"
+                   href="https://youtube.com/c/BlockchainForWhatIsBest">youtube</a>
+                <a target="_blank" rel="noopener"
+                   href="https://github.com/pit-coin/pit-coin.github.io">github</a>
+            </div>
+        </div>
+        <div id="loading"><div></div></div>
+        <script src="assets/bignumber.min.js"></script>
+        <script src="assets/script.js"></script>
+    </body>
+</html>
