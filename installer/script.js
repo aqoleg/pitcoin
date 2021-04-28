@@ -5,7 +5,7 @@
 
     window.onload = function () {
         var script = document.createElement("script");
-        script.src = "../assets/web3.min.js";
+        script.src = "web3.min.js";
         script.onload = function () {
             if (typeof window.ethereum === "undefined") {
                 alert("no-ethereum browser detected");

@@ -1,5 +1,4 @@
 'use strict';
-
 (function () {
     var ethAddress = '0x99cbe93AFee15456a1115540e7F534F6629bAB3f';
     var ropstenAddress = '0x6342A5c056F71E7E3a6Bf89560Dc1F97210bDb51';
@@ -196,7 +195,6 @@
             list[i].innerHTML = eth ? 'eth' : 'trx';
         }
         document.getElementById('price').innerHTML = eth ? '0.1' : '1';
-        document.getElementById('refAmount').innerHTML = eth ? '10' : '1000';
         clearContractBalance();
         clearAccount();
         clearLogs();
@@ -432,7 +430,13 @@
                 return;
             }
             checkRef();
-        }).catch(error);
+        }).catch(function (e) {
+            if (e.toString().includes('code 503')) {
+                setTimeout(buy, Math.random * 1000);
+            } else {
+                error(e);
+            }
+        });
 
         function checkRef() {
             var ref = parse(eth ? 'eth' : 'trx');
@@ -502,7 +506,13 @@
                 message = logTx('purchase for ' + value + ' trx', hash);
                 stopLoading();
                 checkTronTx(hash, message);
-            }).catch(error);
+            }).catch(function (e) {
+                if (e.toString().includes('code 503')) {
+                    setTimeout(buy, Math.random * 1000);
+                } else {
+                    error(e);
+                }
+            });
         }
     }
 
@@ -557,7 +567,13 @@
                 message = logTx('sale of ' + value + ' pit', hash);
                 stopLoading();
                 checkTronTx(hash, message);
-            }).catch(error);
+            }).catch(function (e) {
+                if (e.toString().includes('code 503')) {
+                    setTimeout(sell, Math.random * 1000);
+                } else {
+                    error(e);
+                }
+            });
         }
     }
 
@@ -590,7 +606,13 @@
                 message = logTx('withdrawal', hash);
                 stopLoading();
                 checkTronTx(hash, message);
-            }).catch(error);
+            }).catch(function (e) {
+                if (e.toString().includes('code 503')) {
+                    setTimeout(withdraw, Math.random * 1000);
+                } else {
+                    error(e);
+                }
+            });
         }
     }
 
@@ -622,7 +644,13 @@
                 message = logTx('reinvest', hash);
                 stopLoading();
                 checkTronTx(hash, message);
-            }).catch(error);
+            }).catch(function (e) {
+                if (e.toString().includes('code 503')) {
+                    setTimeout(reinvest, Math.random * 1000);
+                } else {
+                    error(e);
+                }
+            });
         }
     }
 
@@ -681,7 +709,7 @@
                     message.innerHTML = ' - rejected';
                 }
             }).catch(function (error) {
-                if (error.toString().includes('not found')) {
+                if (error.toString().includes('not found') || error.toString().includes('code 503')) {
                     checkTronTx(hash, message);
                 }
             });
@@ -740,7 +768,13 @@
             tronWeb.trx.getUnconfirmedBalance(contract.address).then(function (balance) {
                 balance = new BigNumber(balance).shiftedBy(-6);
                 printValue(balance, document.getElementById('contractBalance'));
-            }).catch(error);
+            }).catch(function (e) {
+                if (e.toString().includes('code 503')) {
+                    setTimeout(loadContractBalance, Math.random * 10000);
+                } else {
+                    error(e);
+                }
+            });
         }
     }
 
@@ -798,8 +832,8 @@
                 }
                 dividends = new BigNumber(dividends).shiftedBy(-18).plus(refDividend);
                 printValue(dividends, document.getElementById('dividend'));
-            }).catch(error);
-            contract.balanceOf(account).call().then(function (balance) {
+                return contract.balanceOf(account).call();
+            }).then(function (balance) {
                 accountTokens = new BigNumber(balance).shiftedBy(-18);
                 printValue(accountTokens, document.getElementById('balance'));
                 if (accountTokens >= 1000) {
@@ -811,7 +845,13 @@
                     document.getElementById('ref').style.display = 'none';
                     document.getElementById('reflink').innerHTML = '';
                 }
-            }).catch(error);
+            }).catch(function (e) {
+                if (e.toString().includes('code 503')) {
+                    setTimeout(loadAccount, Math.random * 1000);
+                } else {
+                    error(e);
+                }
+            });
         }
     }
 

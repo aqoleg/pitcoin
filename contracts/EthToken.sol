@@ -1,15 +1,3 @@
-/*
-
-"Participation in Immutable Transparency (PITcoin)
-
-Regulating the Regulators
-
-Taking the business out of law, banking and politics."
-
-"A Blockchain For What Is Best Creation"
-
-*/
-
 pragma solidity ^0.6.6;
 
 

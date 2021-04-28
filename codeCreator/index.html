@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <body>
+        <textarea id="text" style="width:800px; height:800px"></textarea>
+        <button id="ok" type="button">ok</button>
+        <script>
+            document.getElementById("ok").onclick = function () {
+                var text = document.getElementById("text").value;
+                text = text.replace(/\n/g, "\\n");
+                console.log(text);
+            }
+        </script>
+    </body>
+</html>
