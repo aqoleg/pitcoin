@@ -12,6 +12,7 @@ The smart contract has no administrators, all owners are equal.
 
 Use the [app](https://aqoleg.com/pitcoin).
 Buy pit tokens on the ethereum or tron blockchain.
+Join the group [@pitcoin_group](https://t.me/pitcoin_group) for contributors and owners.
 Be active, discuss, invite other beings, or stay calm and wait.
 Get dividends from the newbies, then reinvest or withdraw then.
 Sell your tokens at any time.
